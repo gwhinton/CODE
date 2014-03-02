@@ -88,6 +88,6 @@ public class Charity {
 	
 	@Override
 	public String toString() {
-		return this.businessNumber;
+		return this.name;
 	}
 }

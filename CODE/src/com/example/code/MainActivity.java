@@ -1,8 +1,10 @@
 package com.example.code;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
-import com.example.code.database.CharityDS;
+import com.example.code.database.DS;
 import com.example.code.model.Charity;
 
 import android.os.Bundle;
@@ -13,25 +15,28 @@ import android.app.ListActivity;
 
 public class MainActivity extends ListActivity {
 	
-	private CharityDS ds;
+	private DS ds;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        ds = new CharityDS(this);
+        ds = new DS(this);
         ds.open();
         
         ds.addIdent("123123", "123123", "123123213");
         ds.addIdent("222", "nameofPlace", "website");
-        
+      
         List<Charity> val = ds.getAllCharities();
         
         ArrayAdapter<Charity> adapter = new ArrayAdapter<Charity>(this,
         		android.R.layout.simple_list_item_1, val);
         setListAdapter(adapter);
-        
+       // try {
+       // 	String test = getAssets().open("sql/program_layman").toString();
+        //	ds.populateLayman(test);
+      //  } catch (IOException e) {}
     }
 
 
