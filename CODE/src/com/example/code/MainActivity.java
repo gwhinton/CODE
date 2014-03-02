@@ -33,10 +33,6 @@ public class MainActivity extends ListActivity {
         ArrayAdapter<Charity> adapter = new ArrayAdapter<Charity>(this,
         		android.R.layout.simple_list_item_1, val);
         setListAdapter(adapter);
-       // try {
-       // 	String test = getAssets().open("sql/program_layman").toString();
-        //	ds.populateLayman(test);
-      //  } catch (IOException e) {}
     }
 
 

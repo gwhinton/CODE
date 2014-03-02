@@ -85,17 +85,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	//Layman
 	private static final String LAYMAN_CREATE = "create table "
 			+ TABLE_LAYMAN + "(" 
-			+ COLUMN_LAYMAN + "integer primary key autoincrement, "
+			+ COLUMN_LAYMAN + " integer primary key autoincrement, "
 			+ COLUMN_TERM_EN + " text, "
 			+ COLUMN_TERM_FR + " text"
 			+");";
 	//Layman/Code
 	private static final String CODELAYMAN_CREATE = "create table "
 			+ TABLE_CODE_LAYMAN + "(" 
-			+ COLUMN_CODE + " text primary key, "
-			+ COLUMN_LAYMAN + " integer primary key, "
+			+ COLUMN_CODE + " text, "
+			+ COLUMN_LAYMAN + " integer, "
 			+ "foreign key(" + COLUMN_CODE + ") references " + DatabaseHelper.TABLE_CODE + "(" + DatabaseHelper.COLUMN_CODE + "), "
-			+ "foreign key(" + COLUMN_LAYMAN + ") references " + DatabaseHelper.TABLE_LAYMAN + "(" + DatabaseHelper.COLUMN_LAYMAN + ")"
+			+ "foreign key(" + COLUMN_LAYMAN + ") references " + DatabaseHelper.TABLE_LAYMAN + "(" + DatabaseHelper.COLUMN_LAYMAN + "), " 
+			+ "PRIMARY KEY (" + COLUMN_CODE + "," + COLUMN_LAYMAN + ")"
 			+");";
 	
 	
